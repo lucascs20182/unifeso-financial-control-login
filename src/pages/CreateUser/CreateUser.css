@@ -5,7 +5,7 @@
     flex: 1;
   }
   
-.container__create__user {
+.container__create__user, form {
   display: flex;
   flex-direction: column;
   flex: 1;
