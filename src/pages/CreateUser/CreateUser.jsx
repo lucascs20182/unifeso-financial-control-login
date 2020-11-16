@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
+
+import api from '../../services/api';
 
 import logo from "../../assets/logo.svg";
 
@@ -9,12 +12,18 @@ export default function CreateUser() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const history = useHistory();
+
     async function handleSubmit(event) {
         event.preventDefault();
 
-        console.log({ name, email, password });
+        const data = { username: name, password, email };
 
-        // estudar axios
+        await api.post('users', data);
+
+        alert('Cadastro realizado com sucesso!');
+
+        history.push('/');
     }
 
     return (
